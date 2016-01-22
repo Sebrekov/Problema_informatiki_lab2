@@ -1,0 +1,28 @@
+# Last Modified: Fri Jan 22 00:41:32 2016
+#include <tunables/global>
+
+/usr/bin/lftp {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  deny /home/*/.ssh/ rw,
+  deny /home/*/.ssh/known_hosts rw,
+
+  /dev/ptmx rw,
+  /dev/pts/* rw,
+  /dev/tty rw,
+  /etc/inputrc r,
+  /etc/lftp.conf rw,
+  /etc/ssh/ssh_config r,
+  /etc/ssl/openssl.cnf r,
+  /home/*/.local/share/lftp/cwd_history rwk,
+  /home/*/.local/share/lftp/rl_history rw,
+  /home/*/.local/share/lftp/rl_history- w,
+  /lib/ r,
+  /proc/*/fd/ r,
+  /proc/filesystems r,
+  /usr/bin/lftp mixr,
+  /usr/bin/ssh mixr,
+  /usr/lib/ r,
+
+}
